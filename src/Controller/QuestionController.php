@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Service\MarkdownHelper;
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;
+use Sentry\State\Hub;
+use Sentry\State\HubInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -48,6 +50,8 @@ class QuestionController extends AbstractController
         if($this->isDebug) {
             $this->logger->info('WE are in debug mode');
         }
+
+
         dump($this->getParameter('cache_adapter'));
         $answers = [
             'Make sure your cat is sitting `purrrfectly` still 🤣',
